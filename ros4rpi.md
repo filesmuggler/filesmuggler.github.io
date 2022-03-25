@@ -8,43 +8,43 @@ I was faced multiple times with a challenge to run sensors on RPI Zero W under R
 Download and flash [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/) onto 16GB SD Card. At first boot be sure to enable SSH and add your WiFi network credentials.
 
 ### Setup Repositories
-```
+```shell
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-get install ca-certificates ssl-cert
 ```
 ### Add Google DNS
 Open:
-```
+```shell
 sudo nano /etc/resolv.conf
 ```
 Paste `nameserver 8.8.8.8` and save, reboot.
 ### Install keys
 According to [this source](https://answers.ros.org/question/329434/installing-ros-kinetic-on-the-raspberry-pi-no_pubkey-f42ed6fbab17c654/) execute the key install below.
-```
+```shell
 sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 ```
 Debian Buster is not exactly the newest so you have to accept changes.
-```
+```shell
 sudo apt update --allow-releaseinfo-change
 sudo apt-get update
 sudo apt-get upgrade
 ```
 If above commands gives you error like:
-```
+```shell
 E: Release file for http://packages.ros.org/ros/ubuntu/dists/buster/InRelease is not valid yet (invalid for another 769d 16h 34min 23s). Updates for this repository will not be applied.
 ```
 please be sure to update your date manually with command:
-```
+```shell
 sudo date -s '25 Mar 2022 15:37'
 ```
-but insert your date and time GMT.
+but insert your date and time GMT. Then retry update & upgrade.
 
 ### Install Bootstrap Dependencies
-```
+```shell
 sudo apt install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake
 ```
 ### Init rosdep
-```
+```shell
 sudo rosdep init
 rosdep update
 ```
@@ -52,20 +52,20 @@ rosdep update
 
 ### Creating catkin workspace
 Create workspace in the home directory
-```
+```shell
 mkdir -p ~/ros_catkin_ws/src/
 cd ~/ros_catkin_ws/
 ```
 ### Core packages
 Fetch core packages using wstool command.
-```
+```shell
 rosinstall_generator ros_comm --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
 wstool init src melodic-ros_comm-wet.rosinstall
 ```
 ### Resolve Dependencies
 Run rosdep. It will recursively install packages.
 
-```
+```shell
 cd ~/ros_catkin_ws
 rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debian:buster
 ```
