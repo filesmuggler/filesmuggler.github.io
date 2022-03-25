@@ -38,6 +38,7 @@ Enter `orocos_kinematics_dynamics` and follow instructions described [here](http
 ```shell
 sudo apt-get install python-psutil python-future
 sudo apt-get install libeigen3-dev libcppunit-dev
+sudo apt-get install libbullet-dev
 git submodule update --init #installing submodule for PyBind11
 ```
 ### Installing missing packages for ros_icm20948
