@@ -89,6 +89,7 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 ### Testing ROS
 Run. If everything is correctly build you should be able to view a standard ROS output.
 ```shell
+source /opt/ros/melodic/setup.bash
 roscore
 ```
 
