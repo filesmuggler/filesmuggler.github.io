@@ -4,3 +4,4 @@ relative_links:
   collections: true
 include:
  - ros4rpi.md
+ - imu4rpi.md
