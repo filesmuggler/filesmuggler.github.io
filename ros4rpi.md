@@ -37,3 +37,24 @@ rosdep update
 ```
 ## Installation
 
+### Creating catkin workspace
+Create workspace in the home directory
+```
+mkdir -p ~/ros_catkin_ws/src/
+cd ~/ros_catkin_ws/
+```
+### Core packages
+Fetch core packages using wstool command.
+```
+rosinstall_generator ros_comm --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
+wstool init src melodic-ros_comm-wet.rosinstall
+```
+### Resolve Dependencies
+Run rosdep 
+
+
+
+
+
+
+
