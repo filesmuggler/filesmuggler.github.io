@@ -47,17 +47,18 @@ sudo apt-get install i2c-tools
 sudo apt install wiringpi
 sudo apt-get install python3-scipy
 ```
-Add `i2c-devl` to boot with
-```shell
-sudo nano /etc/modules-load.d/modules.conf
-```
-You may find `i2c-dev` already in the `modules.conf` if you enabled I2C communication in [previous tutorial](ros4rpi.md)
 Install some python packages
 ```shell
 pip3 install ahrs
 sudo pip3 install sparkfun-qwiic-icm20948
 ```
-In case you missed one tutorial with installing python3.6 on RPI please go here.
+In case you missed one tutorial with installing python3.6 on RPI please go here.\
+Add `i2c-devl` to boot with
+```shell
+sudo nano /etc/modules-load.d/modules.conf
+```
+You may find `i2c-dev` already in the `modules.conf` if you enabled I2C communication in [previous tutorial](ros4rpi.md)
+
 
 
 
