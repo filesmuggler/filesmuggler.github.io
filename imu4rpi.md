@@ -51,6 +51,7 @@ Add `i2c-devl` to boot with
 ```shell
 sudo nano /etc/modules-load.d/modules.conf
 ```
+You may find `i2c-dev` already in the `modules.conf` if you enabled I2C communication in [previous tutorial](ros4rpi.md)
 Install some python packages
 ```shell
 pip3 install ahrs
