@@ -29,6 +29,16 @@ sudo apt update --allow-releaseinfo-change
 sudo apt-get update
 sudo apt-get upgrade
 ```
+If above commands gives you error like:
+```
+E: Release file for http://packages.ros.org/ros/ubuntu/dists/buster/InRelease is not valid yet (invalid for another 769d 16h 34min 23s). Updates for this repository will not be applied.
+```
+please be sure to update your date manually with command:
+```
+sudo date -s '25 Mar 2022 15:37'
+```
+but insert your date and time GMT.
+
 ### Install Bootstrap Dependencies
 ```
 sudo apt install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake
