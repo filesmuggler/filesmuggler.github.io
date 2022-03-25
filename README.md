@@ -10,10 +10,11 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-get install ca-certificates ssl-cert
 ```
 ### Add Google DNS
-Paste `nameserver 8.8.8.8` and save, reboot.
+Open:
 ```
 sudo nano /etc/resolv.conf
 ```
+Paste `nameserver 8.8.8.8` and save, reboot.
 ### Install keys
 According to [this source](https://answers.ros.org/question/329434/installing-ros-kinetic-on-the-raspberry-pi-no_pubkey-f42ed6fbab17c654/) execute the key install below.
 ```
