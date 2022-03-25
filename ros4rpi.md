@@ -75,8 +75,22 @@ _The --from-paths option indicates we want to install the dependencies for an en
 [Source](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi)
 ___
 
+### Building catkin workspace
+When you complete steps above, run building. modifier `-j1` ensures that you will not run into memory problems (more or less).
+```shell
+sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j1
+```
+It takes some time since RPI Zero CPU is rather slow.
+Source the ROS environment every time you open a bash session.
+```shell
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+```
 
-
+### Testing ROS
+Run. If everything is correctly build you should be able to view a standard ROS output.
+```shell
+roscore
+```
 
 
 
