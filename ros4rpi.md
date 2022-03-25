@@ -1,5 +1,8 @@
 # How to install ROS on RPI Zero and not to loose your mind
 
+## Motivation
+I was faced multiple times with a challenge to run sensors on RPI Zero W under ROS 1, which can be a tedious in preparation. Despite long presence of both the budget RPI board and ROS at the market, it was not clearly documented how to properly aggregate them. The latest challenge was to put IMU sensor altogether with RPI Zero W board. Here is how it's done.
+
 ## Prerequisites
 ### Download image
 Download and flash [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/) onto 16GB SD Card. At first boot be sure to enable SSH and add your WiFi network credentials.
@@ -50,8 +53,17 @@ rosinstall_generator ros_comm --rosdistro melodic --deps --wet-only --tar > melo
 wstool init src melodic-ros_comm-wet.rosinstall
 ```
 ### Resolve Dependencies
-Run rosdep 
+Run rosdep. It will recursively install packages.
 
+```
+cd ~/ros_catkin_ws
+rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debian:buster
+```
+___
+#### Comment
+_The --from-paths option indicates we want to install the dependencies for an entire directory of packages, in this case src. The --ignore-src option indicates to rosdep that it shouldn't try to install any ROS packages in the src folder from the package manager, we don't need it to since we are building them ourselves. The --rosdistro option is required because we don't have a ROS environment setup yet, so we have to indicate to rosdep what version of ROS we are building for. Finally, the -y option indicates to rosdep that we don't want to be bothered by too many prompts from the package manager._ 
+[Source](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi)
+___
 
 
 
