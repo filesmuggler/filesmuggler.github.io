@@ -52,7 +52,8 @@ Install some python packages
 pip3 install ahrs
 sudo pip3 install sparkfun-qwiic-icm20948
 ```
-In case you missed one tutorial with installing python3.6 on RPI please go here.\
+In case you missed one tutorial with installing python3.6 on RPI please go here.
+### Add I2C permission
 Add `i2c-devl` to boot with
 ```shell
 sudo nano /etc/modules-load.d/modules.conf
