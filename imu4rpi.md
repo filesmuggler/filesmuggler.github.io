@@ -49,7 +49,8 @@ sudo apt-get install python3-scipy
 ```
 Install some python packages
 ```shell
-pip3 install Cython numpy
+sudo pip3 install Cython 
+pip3 install numpy
 pip3 install ahrs
 sudo pip3 install sparkfun-qwiic-icm20948
 ```
