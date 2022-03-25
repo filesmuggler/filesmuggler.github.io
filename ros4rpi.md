@@ -1,4 +1,4 @@
-# How to install ROS on RPI Zero and not loose your mind
+# How to install ROS on RPI Zero and not to loose your mind
 
 ## Prerequisites
 ### Download image
