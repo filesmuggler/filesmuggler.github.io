@@ -1,8 +1,8 @@
 # How to install ROS on RPI Zero and not loose your mind
 
-##Prerequisites
+## Prerequisites
 ### Download image
-Download and flash [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/) onto 16GB SD Card.
+Download and flash [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/) onto 16GB SD Card. At first boot be sure to enable SSH and add your WiFi network credentials.
 
 ### Setup Repositories
 ```
@@ -10,7 +10,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-get install ca-certificates ssl-cert
 ```
 ### Add Google DNS
-Paste `nameserver 8.8.8.8` and save,reboot.
+Paste `nameserver 8.8.8.8` and save, reboot.
 ```
 sudo nano /etc/resolv.conf
 ```
