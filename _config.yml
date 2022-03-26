@@ -2,6 +2,10 @@ theme: jekyll-theme-cayman
 title: filesmuggler's homepage
 description: Bookmark this to keep an eye on my project updates!
 
+titles_from_headings:
+  enabled:     true
+  strip_title: true
+  collections: true
 relative_links:
   enabled: true
   collections: true
