@@ -35,10 +35,13 @@ git clone -b indigo-devel https://github.com/ros/nodelet_core
 git clone -b master https://github.com/orocos/orocos_kinematics_dynamics.git
 ```
 Enter `orocos_kinematics_dynamics` and follow instructions described [here](https://github.com/orocos/orocos_kinematics_dynamics/blob/master/README.md). However, if you are lazy and willing to take a risk of outdated commands feel free to execute lines below.
+Install required packages.
 ```shell
 sudo apt-get install python-psutil python-future
 sudo apt-get install libeigen3-dev libcppunit-dev
-sudo apt-get install libbullet-dev
+```
+Install the submodule.
+```shell
 git submodule update --init #installing submodule for PyBind11
 ```
 ### Installing missing packages for ros_icm20948
@@ -62,6 +65,12 @@ Add `i2c-devl` to boot with
 sudo nano /etc/modules-load.d/modules.conf
 ```
 You may find `i2c-dev` already in the `modules.conf` if you enabled I2C communication in [previous tutorial](ros4rpi.md)
+
+Before you build anything be sure to have `bullet` library installed.
+```shell
+sudo apt-get install libbullet-dev
+```
+
 
 
 
