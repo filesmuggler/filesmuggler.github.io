@@ -50,6 +50,7 @@ Install packages. based on [original source](https://github.com/GAVLab/ros_icm20
 sudo apt-get install i2c-tools
 sudo apt install wiringpi
 sudo apt-get install python3-scipy
+sudo apt-get install python-pip
 ```
 Install some python packages
 ```shell
@@ -57,6 +58,8 @@ sudo pip3 install Cython
 pip3 install numpy
 pip3 install ahrs
 sudo pip3 install sparkfun-qwiic-icm20948
+pip install pyyaml PyYAML
+pip3 install pyyaml PyYAML
 ```
 In case you missed one tutorial with installing python3.6 on RPI please go here.
 ### Add I2C permission
@@ -70,7 +73,12 @@ Before you build anything be sure to have `bullet` library installed.
 ```shell
 sudo apt-get install libbullet-dev
 ```
-
+Build the workspace with
+```shell
+catkin_make_isolated
+```
+It will take a while so here is something to keep you happy.  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/eY52Zsg-KVI/0.jpg)](https://www.youtube.com/watch?v=eY52Zsg-KVI)
 
 
 
