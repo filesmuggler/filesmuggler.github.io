@@ -77,10 +77,7 @@ Build the workspace with
 ```shell
 catkin_make_isolated
 ```
-It will take a while so here is something to keep you happy.  
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/eY52Zsg-KVI/0.jpg)](https://www.youtube.com/watch?v=eY52Zsg-KVI)
-
-
+It will take a while so here is something to keep you happy.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eY52Zsg-KVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
