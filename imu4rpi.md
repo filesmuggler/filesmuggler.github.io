@@ -47,20 +47,19 @@ git submodule update --init #installing submodule for PyBind11
 ### Installing missing packages for ros_icm20948
 Install packages. based on [original source](https://github.com/GAVLab/ros_icm20948/blob/main/README.md)
 ```shell
-sudo apt-get install i2c-tools
-sudo apt install wiringpi
-sudo apt-get install python3-scipy
-sudo apt-get install python-pip
+sudo apt-get install i2c-tools wiringpi python3-scipy python-pip
 ```
-Install some python packages
+Install some python3.6 packages
 ```shell
-sudo pip3 install Cython 
-pip3 install numpy
-pip3 install ahrs
-sudo pip3 install sparkfun-qwiic-icm20948
-pip install pyyaml PyYAML
-pip3 install pyyaml PyYAML
+python3.6 -m pip install Cython numpy ahrs sparkfun-qwiic-icm20948 pyyaml PyYAML
+python3.6 -m pip install adafruit-blinka==6.10.0 adafruit-circuitpython-icm20x==2.0.7 Adafruit-PlatformDetect=3.6.0
+python3.6 -m pip install adafruit-circuitpython-busdevice==5.0.6 adafruit-python-shell
 ```
+Install some python2 packages
+```shell
+pip install pyyaml PyYAML
+```
+These are the versions of the packages that are proven to work for python3.6 on RPI with melodic. However
 In case you missed one tutorial with installing python3.6 on RPI please go here.
 ### Add I2C permission
 Add `i2c-devl` to boot with
@@ -79,6 +78,5 @@ catkin_make_isolated
 ```
 It will take a while so here is something to keep you happy.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eY52Zsg-KVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 
