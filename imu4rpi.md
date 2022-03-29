@@ -99,6 +99,7 @@ Enter `~/catkin_ws/src/` and create new package with `catkin_tools`
 ```shell
 catkin_create_pkg imu_rpi std_msgs rospy roscpp
 ```
+### Test script
 Go to `src` folder of the newly created package and create test script `nano imu_test.py`.
 ```python
 from __future__ import print_function
@@ -137,8 +138,9 @@ if __name__ == '__main__':
 		print("\nEnding Example 1")
 		sys.exit(0)
 ```
-If above code works you are good to go and create ROS node `nano imu_talker.py`.
-Then paste the contents of the file below. 
+If above code works you are good to go and create ROS node.
+### IMU publisher
+Create in the `src` the file `nano imu_talker.py`. Then paste the contents of the file below. 
 ```python
 #!/usr/bin/env python3
 
@@ -221,13 +223,115 @@ if __name__ == '__main__':
         except rospy.ROSInterruptException:
                 rospy.loginfo(rospy.get_caller_id() + "  icm20948 node exited with exception.")
 ```
-It lets you convert raw readings of the IMU module into a ROS topic with `Imu` message type. Go back to root folder of the package and create launch folder `mkdir launch`. Get inside and `nano icm20948.launch`, then paste.
+It lets you convert raw readings of the IMU module into a ROS topic with `Imu` message type.
+### TF broadcaster (extra)
+If you want to have some other frame assinged to the IMU frame because of numerous reasons (e.g. different orientation on robot than expected).
+Create `nano custom_tf_broadcaster.py` and paste:
+```python
+#!/usr/bin/env python
+### IMU pose broadcaster
+# Broadcaster of TF for imu link with respect to the base link
+# Prints the tf orientation of imu link wrt base
+# USED AT IMU CUBE ONLY
+
+import roslib
+import rospy
+from sensor_msgs.msg import Imu
+import math
+import tf
+import tf2_ros
+from tf.transformations import euler_from_quaternion, quaternion_from_euler, quaternion_multiply, quaternion_about_axis
+import geometry_msgs.msg
+import time
+
+class Imu_pose_broadcaster:
+    def __init__(self):
+        print("Initializing.....")
+        time.sleep(5)
+        print("Go!")
+        rospy.init_node('erc_imu_broadcaster',anonymous=True)
+        self.check_service = rospy.Subscriber("/imu/data",Imu,self.callback)
+        self.listener = tf.TransformListener()
+        rospy.spin()
+
+    def callback(self,data):
+        q_rot = quaternion_about_axis(math.pi/2.0,(0,1,0))
+        quat= q_rot
+
+        static_transformStamped = geometry_msgs.msg.TransformStamped()
+
+        static_transformStamped.header.stamp = rospy.Time.now()
+        static_transformStamped.header.frame_id = "imu"
+        static_transformStamped.child_frame_id = "imu_panel"
+
+        static_transformStamped.transform.translation.x = 0
+        static_transformStamped.transform.translation.y = 0
+        static_transformStamped.transform.translation.z = 0
+
+        static_transformStamped.transform.rotation.x = quat[0]
+        static_transformStamped.transform.rotation.y = quat[1]
+        static_transformStamped.transform.rotation.z = quat[2]
+        static_transformStamped.transform.rotation.w = quat[3]
+
+        br = tf2_ros.StaticTransformBroadcaster()
+        br.sendTransform(static_transformStamped)
+
+        try:
+            (trans, rot) = self.listener.lookupTransform('/imu_panel', '/base', rospy.Time(0))
+        except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+            print("no transform")
+
+        roll, pitch, yaw = euler_from_quaternion(rot)
+        roll = math.degrees(roll)
+        pitch = math.degrees(pitch)
+        yaw = math.degrees(yaw)
+
+        print("TF Roll:", "{:.2f}".format(roll), "Pitch:", "{:.2f}".format(pitch), "Yaw:",
+              "{:.2f}".format(yaw))
+
+
+if __name__ == '__main__':
+    ipb = Imu_pose_broadcaster()
+```
+
+### Launch files
+Go back to root folder of the package and create launch folder `mkdir launch`. Get inside and `nano imu.launch`, then paste.
 ```xml
 <launch>
     <node name="imu_rpi_node" pkg="imu_rpi" type="imu_talker.py" respawn="true" respawn_delay="2" >
     </node>
 </launch>
 ```
+Then create a final launch file for all required packages. 
+Create `nano start.launch`
+```xml
+<launch>
+	
+  #### IMU Driver
+  <include file="$(find imu_rpi_node)/launches/imu.launch" />
+
+  #### Complementary filter
+  <node pkg="imu_complementary_filter" type="complementary_filter_node"
+      name="complementary_filter_gain_node" output="screen" >
+    <param name="do_bias_estimation" value="true"/>
+    <param name="do_adaptive_gain" value="true"/>
+    <param name="use_mag" value="false"/>
+    <param name="gain_acc" value="0.01"/>
+    <param name="gain_mag" value="0.01"/>
+    <param name="publish_tf" value="true"/>
+  </node>
+  
+  #### Custom tf broadcaster (optional)
+  <node name="custom_tf_broadcaster_node" pkg="imu_rpi" type="custom_tf_broadcaster.py"
+      name="custom_tf_broadcaster" output="screen"/>
+	
+</launch>
+
+```
+### Rebuild workspace
+After creating all files, rebuild the workspace. It will take less time now, because most of packages are already built.
+
+
 
 
 
