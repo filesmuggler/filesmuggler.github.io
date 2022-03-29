@@ -79,4 +79,22 @@ catkin_make_isolated
 It will take a while so here is something to keep you happy.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eY52Zsg-KVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+After the workspace is built, go to 
+```shell
+sudo nano /etc/dhcpcd.conf
+```
+and paste at the end configuration coresponding to you LAN setup. In my case it looks like this.
+It sets static IP address, gateway and DNS for the RPI on the wifi interface.
+```
+interface wlan0
+static ip_address=192.168.1.101/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+```
+Make sure that in `/etc/wpa_supplicant/wpa_supplicant.conf` you have your network SSID with password key added.
+now you can reboot, log in and continue in the next section.
+## ROS nodes
+
+
+
 
