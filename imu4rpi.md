@@ -329,9 +329,22 @@ Create `nano start.launch`
 
 ```
 ### Rebuild workspace
-After creating all files, rebuild the workspace. It will take less time now, because most of packages are already built.
+After creating all files, rebuild the workspace. It will take less time now, because most of packages are already built. Remember to use `catkin_make_isolated`.
 
+## Start script
+At home directory create `nano run.sh` and paste following contents.
+```sh
+##!/bin/bash
+# RPI IMU 
+# export ROS_MASTER_URI=http://192.168.1.121:11311
+export ROS_IP=192.168.1.101
+source ~/catkin_ws/devel_isolated/setup.bash
+roslaunch imu_rpi start.launch
+```
+Remember to customize `ROS_MASTER_URI` based on your network configuration.
 
+## Test!
+Reboot and run `bash run.sh`. Observe the effect!
 
 
 
