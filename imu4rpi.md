@@ -72,6 +72,7 @@ Before you build anything be sure to have `bullet` library installed.
 ```shell
 sudo apt-get install libbullet-dev
 ```
+### Building time!
 Build the workspace with
 ```shell
 catkin_make_isolated
@@ -94,7 +95,95 @@ static domain_name_servers=192.168.1.1
 Make sure that in `/etc/wpa_supplicant/wpa_supplicant.conf` you have your network SSID with password key added.
 now you can reboot, log in and continue in the next section.
 ## ROS nodes
+Enter `~/catkin_ws/src/` and create new package with `catkin_tools`
+```shell
+catkin_create_pkg imu_rpi std_msgs rospy roscpp
+```
+Go to `src` folder of the newly created package and `nano talker.py`.
+Then paste the contents of the file below.
+```python
+#!/usr/bin/env python3
 
+import rospy
+import sys
+from sensor_msgs.msg import MagneticField,Imu
+from std_msgs.msg import Float64
+import time
+import board
+import busio
+import os
+import numpy as np
+from adafruit_icm20x import ICM20948,AccelRange,GyroRange
+
+def imu_node():
+        print("dupa")
+        raw_pub = rospy.Publisher('imu/data_raw', Imu, queue_size=10)
+        mag_pub = rospy.Publisher('imu/mag', MagneticField, queue_size=10)
+        rospy.init_node('icm20948')
+        rate = rospy.Rate(100)
+        rospy.loginfo(rospy.get_caller_id() + "  icm20948 node launched.")
+
+        i2c = busio.I2C(board.SCL, board.SDA)
+        icm = ICM20948(i2c)
+        icm.accelerometer_range = AccelRange.RANGE_4G # Options: RANGE_2G, RANGE_4G, RANGE_8G, RANGE_16G
+        rospy.loginfo(rospy.get_caller_id() + " Initializing IMU module...")
+        time.sleep(5)
+        rospy.loginfo(rospy.get_caller_id() + " IMU module set")
+        if icm.gyro_range == 0:
+                gyro_range = 250
+        elif icm.gyro_range == 1:
+                gyro_range = 500
+        elif icm.gyro_range == 2:
+                gyro_range = 1000
+        elif icm.gyro_range == 3:
+                gyro_range = 2000
+        else:
+                gyro_range = i
+        time.sleep(1)
+
+        frequency = 100  # frequency in Hertz
+
+        rospy.loginfo(rospy.get_caller_id() + " starting to publish")
+        while not rospy.is_shutdown():
+                acc_data = icm.acceleration # linear acceleration (m/s^2) x,y,z
+                gyr_data = icm.gyro # angular velocity (rad/s) x,y,z
+                mag_data = tuple(i for i in icm.magnetic) # magnetic field (uT) x,y,z
+                rospy.loginfo(rospy.get_caller_id() + " publishing")
+                raw_msg = Imu()
+                raw_msg.header.frame_id = "imu"
+                raw_msg.header.stamp = rospy.Time.now()
+                raw_msg.orientation.w = 0
+                raw_msg.orientation.x = 0
+                raw_msg.orientation.y = 0
+                raw_msg.orientation.z = 0
+                raw_msg.linear_acceleration.x = acc_data[0]
+                raw_msg.linear_acceleration.y = acc_data[1]
+                raw_msg.linear_acceleration.z = acc_data[2]
+                raw_msg.angular_velocity.x = gyr_data[0]
+                raw_msg.angular_velocity.y = gyr_data[1]
+                raw_msg.angular_velocity.z = gyr_data[2]
+                raw_msg.orientation_covariance[0] = -1
+                raw_msg.linear_acceleration_covariance[0] = -1
+                raw_msg.angular_velocity_covariance[0] = -1
+                raw_pub.publish(raw_msg)
+                mag_msg = MagneticField()
+                mag_msg.header.stamp = rospy.Time.now()
+                mag_msg.magnetic_field.x = mag_data[0]
+                mag_msg.magnetic_field.y = mag_data[1]
+                mag_msg.magnetic_field.z = mag_data[2]
+                mag_msg.magnetic_field_covariance[0] = -1
+                mag_pub.publish(mag_msg)
+                rate.sleep()
+
+        rospy.loginfo(rospy.get_caller_id() + "  icm20948 node finished")
+
+if __name__ == '__main__':
+        try:
+                imu_node()
+        except rospy.ROSInterruptException:
+                rospy.loginfo(rospy.get_caller_id() + "  icm20948 node exited with exception.")
+```
+It lets you convert raw readings of the IMU module into a ROS topic with `Imu` message type.
 
 
 
