@@ -99,8 +99,46 @@ Enter `~/catkin_ws/src/` and create new package with `catkin_tools`
 ```shell
 catkin_create_pkg imu_rpi std_msgs rospy roscpp
 ```
-Go to `src` folder of the newly created package and `nano talker.py`.
-Then paste the contents of the file below.
+Go to `src` folder of the newly created package and create test script `nano imu_test.py`.
+```python
+from __future__ import print_function
+import qwiic_icm20948
+import time
+import sys
+
+def runExample():
+
+	print("\nSparkFun 9DoF ICM-20948 Sensor  Example 1\n")
+	IMU = qwiic_icm20948.QwiicIcm20948()
+
+	if IMU.connected == False:
+		print("The Qwiic ICM20948 device isn't connected to the system. Please check your connection", \
+			file=sys.stderr)
+		return
+
+	IMU.begin()
+
+	while True:
+		if IMU.dataReady():
+			IMU.getAgmt() # read all axis and temp from sensor, note this also updates all instance variables
+			print("Acceleration: X:%.2f, Y: %.2f, Z: %.2f m/s^2" % (IMU.axRaw,IMU.ayRaw,IMU.azRaw))
+			print("Gyro X:%.2f, Y: %.2f, Z: %.2f rads/s" % (IMU.gxRaw,IMU.gyRaw,IMU.gzRaw))
+			print("Magnetometer X:%.2f, Y: %.2f, Z: %.2f uT" % (IMU.mxRaw,IMU.myRaw,IMU.mzRaw))
+			print("")
+			time.sleep(0.03)
+		else:
+			print("Waiting for data")
+			time.sleep(0.5)
+
+if __name__ == '__main__':
+	try:
+		runExample()
+	except (KeyboardInterrupt, SystemExit) as exErr:
+		print("\nEnding Example 1")
+		sys.exit(0)
+```
+If above code works you are good to go and create ROS node `nano imu_talker.py`.
+Then paste the contents of the file below. 
 ```python
 #!/usr/bin/env python3
 
@@ -183,7 +221,14 @@ if __name__ == '__main__':
         except rospy.ROSInterruptException:
                 rospy.loginfo(rospy.get_caller_id() + "  icm20948 node exited with exception.")
 ```
-It lets you convert raw readings of the IMU module into a ROS topic with `Imu` message type.
+It lets you convert raw readings of the IMU module into a ROS topic with `Imu` message type. Go back to root folder of the package and create launch folder `mkdir launch`. Get inside and `nano icm20948.launch`, then paste.
+```xml
+<launch>
+    <node name="imu_rpi_node" pkg="imu_rpi" type="imu_talker.py" respawn="true" respawn_delay="2" >
+    </node>
+</launch>
+```
+
 
 
 
