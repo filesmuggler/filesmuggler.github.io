@@ -55,9 +55,9 @@ python3.6 -m pip install Cython numpy ahrs sparkfun-qwiic-icm20948 pyyaml PyYAML
 python3.6 -m pip install adafruit-blinka==6.10.0 adafruit-circuitpython-icm20x==2.0.7 Adafruit-PlatformDetect=3.6.0
 python3.6 -m pip install adafruit-circuitpython-busdevice==5.0.6 adafruit-python-shell
 ```
-Install some python2 packages
+Install some python2 packages (yes, you have to downgrade pyparsing 🤷)
 ```shell
-pip install pyyaml PyYAML
+pip install pyyaml PyYAML pyparsing==2.4.7
 ```
 These are the versions of the packages that are proven to work for python3.6 on RPI with melodic. However
 In case you missed one tutorial with installing python3.6 on RPI please go here.
