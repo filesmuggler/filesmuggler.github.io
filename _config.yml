@@ -12,3 +12,4 @@ relative_links:
 include:
  - ros4rpi.md
  - imu4rpi.md
+ - erc.md
