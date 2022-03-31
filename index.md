@@ -6,6 +6,8 @@
 
 ## Projects 🚧
 
+- [European Rover Challenge](erc.md)
+
 ## About 🛀
 
 ## Check it out! 🗺️
