@@ -1,5 +1,7 @@
 # How to run IMU under ROS Melodic on RPI Zero and survive
 
+[Go home](http://www.filesmuggler.github.io){: .btn}
+
 ## Motivation
 RPI Zero W is a low cost computer, succeded by RPI Zero 2 W, still popular in many applications, especially right now
 when shortage hit the electronic market all around the world. It's also much slower than his younger brother therefore
@@ -346,6 +348,7 @@ Remember to customize `ROS_MASTER_URI` based on your network configuration.
 ## Test!
 Reboot and run `bash run.sh`. Observe the effect!
 
+[Go home](http://www.filesmuggler.github.io){: .btn}
 
 
 
