@@ -6,7 +6,7 @@
 
 ## Projects 🚧
 
-- [Perception in Robotics](https://filesmuggler.github.io/ip_conversion/)
+- [Perception in Robotics](perception_in_robotics.md)
 - [European Rover Challenge](erc.md)
 
 ## About 🛀
