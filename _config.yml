@@ -13,3 +13,4 @@ include:
  - ros4rpi.md
  - imu4rpi.md
  - erc.md
+ - perception_in_robotics.md
