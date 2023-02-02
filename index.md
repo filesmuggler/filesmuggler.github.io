@@ -61,11 +61,13 @@ Feel free to contact me in any form!
 
 ### Work and affiliations
 
-[<img src="./imgs/pp.png" width="400">](https://www.put.poznan.pl)
-[<img src="./imgs/inwebit.png" width="400">](https://www.inwebit.pl)
+[<img src="./imgs/pp.png" height="100">](https://www.put.poznan.pl)
 
-[!<img src="./imgs/cybair.png" width="400">](cybair.put.poznan.pl/)
-[!<img src="./imgs/erc.png" width="400">](https://roverchallenge.eu/)
+[<img src="./imgs/inwebit.png" height="100">](https://www.inwebit.pl)
+
+[!<img src="./imgs/cybair.png" height="100">](cybair.put.poznan.pl/)
+
+[!<img src="./imgs/erc.png" height="150">](https://roverchallenge.eu/)
 
 
 
