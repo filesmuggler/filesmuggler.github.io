@@ -2,8 +2,9 @@
 
 ## My projects 🚧
 
-- [Perception in Robotics](perception_in_robotics.md)
-- [Reinforcement Learning with snake](https://filesmuggler.github.io/sneaky_snakes/)
+- [Perception in Robotics<br> <img src="./imgs/pcl.gif" height="100">](perception_in_robotics.md)
+
+- [Reinforcement Learning with snake<br> <img src="./imgs/snakel.gif" height="100">](https://filesmuggler.github.io/sneaky_snakes/)
 - [European Rover Challenge](erc.md)
 
 ## How-tos by me ✨
