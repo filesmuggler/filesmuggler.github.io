@@ -12,7 +12,15 @@
 - [How to run IMU under ROS Melodic on RPI Zero and survive](imu4rpi.md)
 
 
-## About 🛀
+## About me 🛀
+
+### Socials
+
+Feel free to contact me in any form!
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krzysztof-stezala/)
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)]()
+[![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white)](https://www.reddit.com/user/filesmuggler)
 
 ### Technological stack and favourite tools
 
@@ -49,21 +57,15 @@
 [![Brave](https://img.shields.io/badge/Brave-FB542B?style=for-the-badge&logo=Brave&logoColor=white)]()
 
 
-### Socials
 
-Feel free to contact me in any form!
-
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krzysztof-stezala/)
-[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)]()
-[![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white)](https://www.reddit.com/user/filesmuggler)
 
 ### Work and affiliations
 
-[![PUT](./imgs/pp.png)](https://www.put.poznan.pl)
-[![Inwebit](./imgs/inwebit.png)](https://www.inwebit.pl)
+[<img src="./imgs/pp.png" width="400">](https://www.put.poznan.pl)
 
+[<img src="./imgs/inwebit.png" width="400">](https://www.inwebit.pl)
 
-[![cybair](./imgs/cybair.png)](cybair.put.poznan.pl/)
+[!<img src="./imgs/cybair.png" width="400">](cybair.put.poznan.pl/)
 
 
 
