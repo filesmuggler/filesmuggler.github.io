@@ -65,9 +65,12 @@ Feel free to contact me in any form!
 
 [<img src="./imgs/inwebit.png" height="100">](https://www.inwebit.pl)
 
-[!<img src="./imgs/cybair.png" height="100">](cybair.put.poznan.pl/)
+[<img src="./imgs/cybair.png" height="100">](cybair.put.poznan.pl/)
 
-[!<img src="./imgs/erc.png" height="150">](https://roverchallenge.eu/)
+[<img src="./imgs/erc.png" height="150">](https://roverchallenge.eu/)
+
+[<img src="./imgs/pi.png" height="100">](https://www.put.poznan.pl/spolka-politechnika-innowacje)
+
 
 
 
