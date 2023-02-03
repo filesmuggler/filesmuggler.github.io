@@ -64,15 +64,16 @@ Feel free to contact me in any form!
 
 ### Work and affiliations
 
-[<img src="./imgs/pp.png" height="100">](https://www.put.poznan.pl)
+[<img src="./imgs/pp.png" height="100" style="padding: 10px;">](https://www.put.poznan.pl)
 
-[<img src="./imgs/inwebit.png" height="100">](https://www.inwebit.pl)
+[<img src="./imgs/ppi.png" height="100" style="padding: 10px;">](https://www.put.poznan.pl)
+[<img src="./imgs/irim.png" height="100" style="padding: 10px;">](https://www.put.poznan.pl)
+[<img src="./imgs/cybair.png" height="100" style="padding: 10px;">](cybair.put.poznan.pl/)
 
-[<img src="./imgs/cybair.png" height="100">](cybair.put.poznan.pl/)
+[<img src="./imgs/inwebit.png" height="100" style="padding: 10px;">](https://www.inwebit.pl)
 
-[<img src="./imgs/erc.png" height="150">](https://roverchallenge.eu/)
-
-[<img src="./imgs/pi.png" height="100">](https://www.put.poznan.pl/spolka-politechnika-innowacje)
+[<img src="./imgs/erc.png" height="150" style="padding: 10px;">](https://roverchallenge.eu/)
+[<img src="./imgs/pi.png" height="100" style="padding: 25px;">](https://www.put.poznan.pl/spolka-politechnika-innowacje)
 
 
 
