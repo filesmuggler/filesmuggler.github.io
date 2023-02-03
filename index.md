@@ -1,6 +1,6 @@
 # Hello there 😎
 
- <img src="./imgs/anymal.jpg" height="100"><img src="./imgs/snakel.gif" height="100"><img src="./imgs/pcl.gif" height="100"><img src="./imgs/lunares.gif" height="100"><img src="./imgs/tf.png" height="100">
+ <img src="./imgs/unitree.gif" height="100"><img src="./imgs/snakel.gif" height="100"><img src="./imgs/pcl.gif" height="100"><img src="./imgs/lunares.gif" height="100"><img src="./imgs/tf.png" height="100">
 
 ## My projects 🚧
 
@@ -81,4 +81,4 @@ Feel free to contact me in any form!
 
 
 ---
-<img src="./imgs/sensor_frame.png" height="100"><img src="./imgs/aruco.jpg" height="100"><img src="./imgs/yolo.jpg" height="100">
+<img src="./imgs/sensor_frame.png" height="100"><img src="./imgs/aruco.jpg" height="100"><img src="./imgs/yolo.jpg" height="100"><img src="./imgs/exomy.jpg" height="100"><img src="./imgs/prusa.jpg" height="100"><img src="./imgs/a1.jpg" height="100">
