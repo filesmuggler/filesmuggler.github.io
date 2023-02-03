@@ -1,10 +1,12 @@
 # Hello there 😎
 
+ <img src="./imgs/anymal.jpg" height="100"><img src="./imgs/snakel.gif" height="100"><img src="./imgs/pcl.gif" height="100"><img src="./imgs/lunares.gif" height="100"><img src="./imgs/tf.png" height="100">
+
 ## My projects 🚧
 
-- [Perception in Robotics<br> <img src="./imgs/pcl.gif" height="100">](perception_in_robotics.md)
+- [Perception in Robotics](perception_in_robotics.md)
 
-- [Reinforcement Learning with snake<br> <img src="./imgs/snakel.gif" height="100">](https://filesmuggler.github.io/sneaky_snakes/)
+- [Reinforcement Learning with snake](https://filesmuggler.github.io/sneaky_snakes/)
 - [European Rover Challenge](erc.md)
 
 ## How-tos by me ✨
@@ -77,3 +79,6 @@ Feel free to contact me in any form!
 
 ## Check it out! 🗺️
 
+
+---
+<img src="./imgs/sensor_frame.png" height="100"><img src="./imgs/aruco.jpg" height="100"><img src="./imgs/yolo.jpg" height="100">
