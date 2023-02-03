@@ -80,6 +80,11 @@ Feel free to contact me in any form!
 
 ## Check it out! 🗺️
 
+- [LRM lab](https://lrm.put.poznan.pl/)
+- [RISA studies](https://risa.put.poznan.pl/)
+- [Robot 4.0](https://robot40.put.poznan.pl/)
+- [CREEF](https://fee.put.poznan.pl/)
+
 
 ---
-<img src="./imgs/sensor_frame.png" height="100"><img src="./imgs/aruco.jpg" height="100"><img src="./imgs/yolo.jpg" height="100"><img src="./imgs/exomy.jpg" height="100"><img src="./imgs/prusa.jpg" height="100"><img src="./imgs/a1.jpg" height="100"><img src="./imgs/prusa.jpg" height="100"><img src="./imgs/anymal.jpg" height="100">
+<img src="./imgs/sensor_frame.png" height="100"><img src="./imgs/aruco.jpg" height="100"><img src="./imgs/yolo.jpg" height="100"><img src="./imgs/exomy.jpg" height="100"><img src="./imgs/prusa.jpg" height="100"><img src="./imgs/anymal.jpg" height="100">
